@@ -94,6 +94,8 @@ class PaymentForm(ShopIdForm):
     cps_phone = forms.CharField(max_length=15, required=False,
                                 widget=readonly_widget)
 
+    ym_merchant_receipt = forms.CharField(widget=readonly_widget)
+
     shopFailURL = forms.URLField(initial=conf.FAIL_URL, widget=readonly_widget)
     shopSuccessURL = forms.URLField(initial=conf.SUCCESS_URL,
                                     widget=readonly_widget)

@@ -75,6 +75,8 @@ class Payment(models.Model):
     performed = models.DateTimeField(_('Started at'), null=True)
     completed = models.DateTimeField(_('Completed at'), null=True)
 
+    ym_merchant_receipt = models.TextField(_('ym_merchant_receipt'), blank=True, null=True)
+
     def __str__(self):
         return _('Payment #%(payment)s') % {'payment': self.order_id}
 
@@ -142,6 +144,7 @@ class Payment(models.Model):
             'cps_email': self.cps_email,
             'cps_phone': self.cps_phone,
             'paymentType': self.payment_type,
+            'ym_merchant_receipt': self.ym_merchant_receipt,
         }
         if conf.SUCCESS_URL is None:
             url = reverse('yandex_cash_register:money_payment_finish')

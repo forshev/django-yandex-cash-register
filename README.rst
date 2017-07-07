@@ -105,6 +105,14 @@ Python 2.7, 3.4 и 3.5. Совместимо со всеми версиями Dj
            cps_phone='70000000000',  # Телефон клиента, 11 цифр без символов
            payment_type='wm',  # Способ оплаты (опционален), если его не задать,
                                # клиент будет выбирать его на стороне Яндекс.Кассы
+           ym_merchant_receipt='{"customerContact": "+79001231212",  # Передача ym_merchant_receipt согласно 54-ФЗ
+                "taxSystem": 1,                                      # Подробнее https://github.com/yandex-money/yandex-money-joinup/blob/master/demo/54-fz.md
+                "items":[
+                    {"quantity": 1.154, "price": {"amount": 300.23},  "tax": 3,"text": "Зеленый чай \"Юн Ву\", кг"},
+                    {"quantity": 2,     "price": {"amount": 200.00},  "tax": 3,"text": "Кружка для чая, шт., скидка 10%"},
+                    {"quantity": 0.3,   "price": {"amount": 1000.00}, "tax": 3,"text": "Предоплата 30%, настольная игра \"Tea Time\""}
+                ]
+            }'
        )
        payment.save()
 
